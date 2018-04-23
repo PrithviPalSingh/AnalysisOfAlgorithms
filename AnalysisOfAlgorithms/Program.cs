@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AnalysisOfAlgorithms
 {
+    /// <summary>
+    /// Array of int takes 8(refrence) + 2N + 24 bytes
+    /// </summary>
     class Program
     {
         /// <summary>
@@ -16,23 +19,24 @@ namespace AnalysisOfAlgorithms
         {
             #region - 3 SUM
             //int[] arr = { 30, -40, -20, -10, 40, 0, 10, 5 };
-            int N = 4000;
+            int N = 8000;
             int[] arr = new int[N];
             for (int i = 0; i < N; i++)
             {
-                arr[i] = i - N/2;
+                arr[i] = i - N / 2;
             }
 
             var intime = DateTime.Now;
+
             BruteForceThreeSum(arr);
             Console.WriteLine(DateTime.Now.Subtract(intime));
             #endregion
 
             #region - Binary Search
             //int[] bsArray = { 6, 13, 14, 25, 33, 43, 51, 53, 64, 72, 84, 93, 95, 96, 97 };
-            intime = DateTime.Now;
-            BinarySearch(arr, 1998);
-            Console.WriteLine(DateTime.Now.Subtract(intime));
+            //intime = DateTime.Now;
+            //BinarySearch(arr, 1998);
+            //Console.WriteLine(DateTime.Now.Subtract(intime));
             #endregion
 
             #region - optimized three sum
@@ -114,6 +118,11 @@ namespace AnalysisOfAlgorithms
             return false;
         }
 
+        /// <summary>
+        /// Binary search complexity is lg(n).
+        /// </summary>
+        /// <param name="bsArray"></param>
+        /// <param name="num"></param>
         private static void BinarySearch(int[] bsArray, int num)
         {
             int low = 0;
